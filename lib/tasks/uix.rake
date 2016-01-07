@@ -698,7 +698,7 @@ angular.module('angularApp')
 angular.module('angularApp')
   .controller('#{uix_model_name(klass)}IndexCtrl', function ($scope, $rootScope, APP, $http, exMsg) {
     
-    $scope.$on('euix:index-ready', function (evt, modelName, config, scope) {
+    $scope.$on('uix:index-ready', function (evt, modelName, config, scope) {
       if (modelName !== '#{uix_model_name(klass)}') return;
       // Do something
     });
@@ -707,12 +707,12 @@ angular.module('angularApp')
 angular.module('angularApp')
   .controller('#{uix_model_name(klass)}FormCtrl', function ($scope, $rootScope, APP, $http, exMsg) {
     
-    $scope.$on('euix:form-ready', function (evt, modelName, config, scope) {
+    $scope.$on('uix:form-ready', function (evt, modelName, config, scope) {
       if (modelName !== '#{uix_model_name(klass)}') return;
       // Do something
     });
 
-    $scope.$on('euix:record-loaded', function (evt, modelName, record, scope) {
+    $scope.$on('uix:record-loaded', function (evt, modelName, record, scope) {
       if (modelName !== '#{uix_model_name(klass)}') return;
       // Do something
     });
