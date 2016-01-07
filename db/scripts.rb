@@ -9,7 +9,7 @@ rails g model interest_area name # ['Praise and Worship/Music', 'Evangelism/Foll
 rails g model blood_group name # ['N/A', 'A', 'B', 'AB', 'O']
 rails g model spiritual_gift name # 
 rails g model member_status name # ['Active', 'Inactive']
-rails g model member name title:references surname othernames gender:references date_of_birth:date age:integer marital_status:references home_town region:references postal_address residential_address residential_landmak phone_numbers occupation institution_name institution_address email_address spoken_language_ids church_office_ids interest_area_ids date_joined:date baptized:boolean baptism_date:date baptismal_certificate_no date_of_rhf:date rhf_extended_by blood_group:references holy_spirit_baptism:boolean spiritual_gift_ids next_of_kin_name next_of_kin_address next_of_kin_phone member_status:references deleted_at:datetime
+rails g model member name title:references surname othernames gender:references date_of_birth:date age:integer marital_status:references home_town region:references postal_address residential_address residential_landmak phone_numbers occupation institution_name institution_address email_address spoken_language_ids church_office_ids interest_area_ids date_joined:date baptized:boolean baptism_date:date baptismal_certificate_no date_of_rhf:date rhf_extended_by blood_group:references holy_spirit_baptism:boolean spiritual_gift_ids next_of_kin_name next_of_kin_address next_of_kin_phone group_ids member_status:references deleted_at:datetime
 # serialize :spoken_language_ids, Array
 # serialize :church_office_ids, Array
 # serialize :interest_area_ids, Array
