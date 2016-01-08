@@ -18,9 +18,9 @@ rails g model member name title:references surname othernames gender:references 
 rails g model group name total_member_acount:integer active_member_acount:integer parent_id:integer lft:integer rgt:integer depth:integer user_ids deleted_at:datetime # ['Choir']
 # serialize :user_ids, Array
 rails g model group_position name # ['President', 'Vice President', 'Secretary', 'Treasurer', 'Organizer']
-rails g model group_leaders name group:references member:references group_position:references deleted_at:datetime
+rails g model group_leader name group:references member:references group_position:references deleted_at:datetime
 rails g model group_member_status name # ['Active', 'Inactive']
-rails g model group_members group:references member:references date_joined:date group_member_status:references deleted_at:datetime
+rails g model group_member group:references member:references date_joined:date group_member_status:references deleted_at:datetime
 rails g model event_type name # ['Sunday Service', 'Evening Service', 'All-Night Service']
 rails g model event_schedule name description special_event:boolean event_type:references start_date:datetime end_date:datetime all_day:boolean group_ids deleted_at:datetime
 # serialize :group_ids, Array
@@ -35,7 +35,7 @@ rails g model pupil_register pupil_attendance:references pupil:references
 
 rake uix:g c spoken_language church_office interest_area spiritual_gift
 rake uix:g c member
-rake uix:g c group group_position group_leaders group_members
+rake uix:g c group group_position group_leader group_member
 rake uix:g c event_type event_schedule
 rake uix:g c pupil_group pupil pupil_attendance pupil_schools pupil_register
 
