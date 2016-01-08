@@ -41,5 +41,5 @@ rake uix:g c pupil_group pupil pupil_attendance pupil_schools pupil_register
 
 
 rake uix:g m main members groups event-schedules
-rake uix:g m sunday-school pupils pupil-groups pupil-attendances pupil-schools
+rake uix:g m sundayschool pupils pupil-groups pupil-attendances pupil-schools
 rake uix:g m admin users church-offices spiritual-gifts spoken-languages interest-areas event-types roles

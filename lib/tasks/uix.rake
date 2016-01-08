@@ -126,7 +126,7 @@ namespace :uix do
 
       # Insert script tag
       pattern = '<script src="app/modules/reports/config.js"></script>'
-      uix_insert_line_into_file(uix_index_file, pattern, uix_module_script_tag(module_route))
+      uix_insert_line_into_file(uix_index_file, pattern, uix_module_script_tag(module_route), true)
     rescue
     end
   end
@@ -263,13 +263,12 @@ namespace :uix do
     end
   end
 
-  def uix_insert_line_into_file(file, pattern, insert_str, after_pattern = true)
+  def uix_insert_line_into_file(file, pattern, insert_str, before_pattern = false)
     lines = File.readlines(file)
     return if lines.join.include? insert_str 
     lines.each_with_index do |line, index|
       if line.include? pattern
-        insert_at = (after_pattern)? index + 1 : index - 1
-        insert_at = (insert_at < 0)? 0 : insert_at
+        insert_at = (before_pattern)? index : index + 1
         lines.insert(insert_at, insert_str)
         break
       end
