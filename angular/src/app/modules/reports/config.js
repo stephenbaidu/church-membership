@@ -17,6 +17,6 @@ angular.module('angularApp')
     }
 
     function hasAccess (user) {
-      return true;
+      return false;
     }
   });
