@@ -269,6 +269,7 @@ ActiveRecord::Schema.define(version: 20160107210649) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
+    t.string   "description"
     t.text     "permissions", default: "--- []\n"
     t.string   "status"
     t.datetime "created_at",                       null: false
@@ -276,56 +277,6 @@ ActiveRecord::Schema.define(version: 20160107210649) do
   end
 
   add_index "roles", ["name"], name: "index_roles_on_name", unique: true
-
-  create_table "salary_rule_categories", force: :cascade do |t|
-    t.boolean  "is_deduction_type"
-    t.string   "name"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "salary_rule_categories", ["depth"], name: "index_salary_rule_categories_on_depth"
-  add_index "salary_rule_categories", ["lft"], name: "index_salary_rule_categories_on_lft"
-  add_index "salary_rule_categories", ["parent_id"], name: "index_salary_rule_categories_on_parent_id"
-  add_index "salary_rule_categories", ["rgt"], name: "index_salary_rule_categories_on_rgt"
-
-  create_table "salary_rule_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "salary_rules", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "salary_rule_category_id"
-    t.string   "code"
-    t.integer  "sequence"
-    t.boolean  "appears_on_payslip"
-    t.boolean  "is_active"
-    t.string   "condition_based_on"
-    t.string   "rules_dependent_on"
-    t.integer  "salary_rule_type_id"
-    t.string   "amount_formula"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth"
-    t.text     "details"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "salary_rules", ["depth"], name: "index_salary_rules_on_depth"
-  add_index "salary_rules", ["lft"], name: "index_salary_rules_on_lft"
-  add_index "salary_rules", ["parent_id"], name: "index_salary_rules_on_parent_id"
-  add_index "salary_rules", ["rgt"], name: "index_salary_rules_on_rgt"
-  add_index "salary_rules", ["salary_rule_category_id"], name: "index_salary_rules_on_salary_rule_category_id"
-  add_index "salary_rules", ["salary_rule_type_id"], name: "index_salary_rules_on_salary_rule_type_id"
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false
