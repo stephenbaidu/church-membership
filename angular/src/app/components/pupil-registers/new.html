@@ -1,0 +1,15 @@
+<div ng-controller="FormCtrl as vm" ng-init="vm.initRoute('pupil_registers', {})">
+  <div class="modal-header">
+    <div ng-include="partials.closeButton"></div>
+    <h4 class="modal-title">
+      Pupil Register
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div ng-include="partials.formlyForm"></div>
+  </div>
+  <div class="modal-footer">
+    <div ng-include="partials.formNewButtons"></div>
+  </div>
+</div>
+<div ng-controller="PupilRegisterFormCtrl"></div>

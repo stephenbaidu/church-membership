@@ -1,0 +1,15 @@
+<div ng-controller="FormCtrl as vm" ng-init="vm.initRoute('spiritual_gifts', {})">
+  <div class="modal-header">
+    <div ng-include="partials.closeButton"></div>
+    <h4 class="modal-title">
+      Spiritual Gift
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div ng-include="partials.formlyForm"></div>
+  </div>
+  <div class="modal-footer">
+    <div ng-include="partials.formNewButtons"></div>
+  </div>
+</div>
+<div ng-controller="SpiritualGiftFormCtrl"></div>

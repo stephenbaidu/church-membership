@@ -19,6 +19,22 @@ Rails.application.routes.draw do
       end
     end
     resources :roles
+    resources :pupil_registers
+    resources :pupil_schools
+    resources :pupil_attendances
+    resources :pupils
+    resources :pupil_groups
+    resources :event_schedules
+    resources :event_types
+    resources :group_members
+    resources :group_leaders
+    resources :group_positions
+    resources :groups
+    resources :members
+    resources :spiritual_gifts
+    resources :interest_areas
+    resources :church_offices
+    resources :spoken_languages
 
     # Reports
     get 'reports/:action'  => 'reports#:action', :defaults => {

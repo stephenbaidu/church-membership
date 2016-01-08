@@ -1,0 +1,15 @@
+<div ng-controller="FormCtrl as vm" ng-init="vm.initRoute('group_leaders', {})">
+  <div class="modal-header">
+    <div ng-include="partials.closeButton"></div>
+    <h4 class="modal-title">
+      Group Leader
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div ng-include="partials.formlyForm"></div>
+  </div>
+  <div class="modal-footer">
+    <div ng-include="partials.formShowButtons"></div>
+  </div>
+</div>
+<div ng-controller="GroupLeaderFormCtrl"></div>

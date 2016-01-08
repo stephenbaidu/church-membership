@@ -1,0 +1,19 @@
+<div ng-controller="IndexCtrl as vm" ng-init="vm.initRoute('group_members', {})">
+  <div ng-include="partials.header"></div>
+  <div ng-include="partials.searchForm"></div>
+  <div class="row model-container">
+    <div ng-init="vm.config({openable: true, popable: true})"></div>
+    <div ng-init="vm.column('group_name', 'Group')"></div>
+		<div ng-init="vm.column('member_name', 'Member')"></div>
+		<div ng-init="vm.column('date_joined', 'Date Joined', 'date', 'yyyy-MM-dd HH:mm:ss')"></div>
+		<div ng-init="vm.column('group_member_status_name', 'Group Member Status')"></div>
+    <div ng-show="state.showGrid" ng-class="{'col-md-12': !state.collapsedGridMode, 'col-md-4': state.collapsedGridMode}">
+      <div ng-include="partials.indexGrid"></div>
+      <div ng-include="partials.loadMoreButton"></div>
+    </div>
+    <div ng-hide="state.isIndex" ng-class="{'col-md-8': state.collapsedGridMode, 'col-md-12': !state.collapsedGridMode}">
+      <div ui-view></div>
+    </div>
+  </div>
+</div>
+<div ng-controller="GroupMemberIndexCtrl"></div>
