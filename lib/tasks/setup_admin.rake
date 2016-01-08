@@ -4,6 +4,7 @@ namespace :app do
 
     # Create admin role
     role = Role.where(name: 'Admin').first_or_create do |r|
+      r.description = 'Overall system administrator'
       r.permissions = []
     end
 
@@ -12,8 +13,8 @@ namespace :app do
       u.uid = 'admin@exrails.com'
       u.provider = 'email'
       u.name = 'System Admin'
-      u.password = 'admin123'
-      u.password_confirmation = 'admin123'
+      u.password = 'adminadmin'
+      u.password_confirmation = 'adminadmin'
       u.confirmation_sent_at = Date.today
       u.confirmed_at = Date.today
       u.role_ids = [role.id]

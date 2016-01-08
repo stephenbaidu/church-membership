@@ -5,14 +5,31 @@ namespace :app do
     # Default user roles
     [
       {
-        name: 'Manager',
+        name: 'Membership Administrator',
         permissions: [
-          'sample:icsud', 'sample_status:is'
+          'spoken_language:icsu', 'church_office:icsu', 'interest_area:icsu',
+          'spiritual_gift:i', 'member:icsud'
         ]
       }, {
-        name: 'Clerk',
+        name: 'Groups Administrator',
         permissions: [
-          'sample:ics', 'sample_status:is'
+          'group:icsud', 'group_position:icsud', 'group_leader:icsud', 'group_member:icsud'
+        ]
+      },{
+        name: 'Event Manager',
+        permissions: [
+          'event_type:icsu', 'event_schedule:icsud'
+        ]
+      }, {
+        name: 'Data Entry Clerk',
+        permissions: [
+          'member:ics'
+        ]
+      }, {
+        name: 'Sunday School',
+        permissions: [
+          'pupil_group:icsu', 'pupil_school:icsu', 'pupil:icsu',
+          'pupil_attendance:icsu', 'pupil_register:icsu', 'member:is',
         ]
       }
     ].each do |role|
