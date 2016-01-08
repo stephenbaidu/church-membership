@@ -27,7 +27,7 @@ rails g model event_schedule name description special_event:boolean event_type:r
 rails g model pupil_group name # ['Teens', 'Class 2', 'Class 1']
 rails g model pupil_school name # ['N/A']
 rails g model pupil_status name # ['Active', 'Travelled', 'Inactive']
-rails g model pupil name gender:references age:integer date_of_birth:date pupil_group:references pupil_school:references school_details:text extra_details:text address phone_no email pupil_status:references member_ids
+rails g model pupil name gender:references age:integer date_of_birth:date pupil_group:references pupil_school:references school_details:text extra_details:text address phone_no email pupil_status:references member_ids deleted_at:datetime
 # serialize :member_ids, Array
 rails g model pupil_attendance event_schedule:references pupil_group:references count:integer
 rails g model pupil_register pupil_attendance:references pupil:references
