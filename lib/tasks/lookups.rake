@@ -19,6 +19,7 @@ namespace :app do
       'MemberStatus' => ['Active', 'Inactive'],
       'GroupPosition' => ['President', 'Vice President', 'Secretary', 'Treasurer', 'Organizer'],
       'GroupMemberStatus' => ['Active', 'Inactive'],
+      'Group' => ['Youth', "Men's Movement", "Women's Movement", 'Presbytery', 'Choir', 'Sunday School'],
       'EventType' => ['Sunday Service', 'Evening Service', 'All-Night Service'],
       'PupilGroup' => ['Teens', 'Class 2', 'Class 1'],
       'PupilSchool' => ['N/A'],
@@ -26,7 +27,7 @@ namespace :app do
     }.each do |k, v|
       begin
         klass = k.to_s.constantize
-        v.each { |n| klass.create(name: n) } if klass.count == 0
+        v.each { |n| klass.create!(name: n) } if klass.count == 0
       rescue
       end
     end

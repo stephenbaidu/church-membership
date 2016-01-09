@@ -5,11 +5,11 @@ namespace :app do
     Rake::Task['app:lookups'].invoke
     Rake::Task['app:setup_admin'].invoke
     Rake::Task['app:setup_roles'].invoke
+    Rake::Task['app:default_member'].invoke
   end
 end
 
 # Some helpful commands
-# rake db:drop db:create db:migrate app:setup test:load_test_data
-# rake db:migrate VERSION=0
-# rake db:migrate app:setup test:load_test_data
+# rake db:drop db:create db:migrate app:setup app:test_data
+# rake db:migrate VERSION=0 && rake db:migrate app:setup
 # sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm

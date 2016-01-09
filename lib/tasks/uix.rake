@@ -615,6 +615,7 @@ angular.module('angularApp')
   <div ng-include="partials.searchForm"></div>
   <div class="row model-container">
     <div ng-init="vm.config({openable: true, popable: true})"></div>
+    <!-- <div ng-init="vm.classes('field-here', {1: 'warning', 2: 'info', 3: 'success', 4: 'danger'})"></div> -->
     #{uix_grid_config(klass)}
     <div ng-show="state.showGrid" ng-class="{'col-md-12': !state.collapsedGridMode, 'col-md-4': state.collapsedGridMode}">
       <div ng-include="partials.indexGrid"></div>
