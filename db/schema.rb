@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20160107210649) do
     t.integer  "event_type_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.boolean  "all_day"
     t.string   "group_ids",     default: "--- []\n"
     t.datetime "deleted_at"
     t.datetime "created_at",                         null: false
@@ -111,16 +110,16 @@ ActiveRecord::Schema.define(version: 20160107210649) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
-    t.integer  "total_member_acount"
-    t.integer  "active_member_acount"
+    t.integer  "total_member_count"
+    t.integer  "active_member_count"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
-    t.string   "user_ids",             default: "--- []\n"
+    t.string   "user_ids",            default: "--- []\n"
     t.datetime "deleted_at"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "interest_areas", force: :cascade do |t|

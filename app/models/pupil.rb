@@ -40,7 +40,9 @@ class Pupil < ActiveRecord::Base
 
   default_scope { where(deleted_at: nil) }
 
+  scope :has_birthday, -> { where('date_of_birth NOT NULL') }
+
   validates_presence_of :name
-  validates_numericality_of :age, greater_than_or_equal_to: 0
+  validates_numericality_of :age, greater_than_or_equal_to: 0, :allow_blank => true
   validates_presence_of :gender_id, :pupil_group_id, :pupil_school_id, :pupil_status_id
 end

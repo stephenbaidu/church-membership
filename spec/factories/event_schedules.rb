@@ -9,7 +9,6 @@
 #  event_type_id :integer
 #  start_date    :datetime
 #  end_date      :datetime
-#  all_day       :boolean
 #  group_ids     :string           default([])
 #  deleted_at    :datetime
 #  created_at    :datetime         not null
@@ -28,7 +27,6 @@ special_event false
 event_type nil
 start_date "2016-01-07 21:06:23"
 end_date "2016-01-07 21:06:23"
-all_day false
 group_ids "MyString"
 deleted_at "2016-01-07 21:06:23"
   end

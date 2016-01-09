@@ -7,7 +7,6 @@ class CreateEventSchedules < ActiveRecord::Migration
       t.references :event_type, index: true, foreign_key: true
       t.datetime :start_date
       t.datetime :end_date
-      t.boolean :all_day
       t.string :group_ids, default: [].to_yaml
       t.datetime :deleted_at
 

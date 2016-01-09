@@ -68,9 +68,11 @@ class Member < ActiveRecord::Base
   serialize :spiritual_gift_ids, Array
   serialize :group_ids, Array
 
-  default_scope { where(deleted_at: nil) }
+  default_scope { where(deleted_at: nil).order('updated_at DESC') }
+
+  scope :has_birthday, -> { where('date_of_birth NOT NULL') }
 
   validates_presence_of :surname, :othernames
-  validates_numericality_of :age, greater_than_or_equal_to: 0
+  validates_numericality_of :age, greater_than_or_equal_to: 0, :allow_blank => true
   validates_presence_of :title_id, :gender_id, :marital_status_id, :region_id, :blood_group_id, :member_status_id
 end

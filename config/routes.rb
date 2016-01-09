@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :pupils
     resources :pupil_groups
     resources :event_schedules
+    get 'upcoming_events' => 'event_schedules#upcoming_events'
     resources :event_types
     resources :group_members
     resources :group_leaders

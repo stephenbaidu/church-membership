@@ -15,7 +15,7 @@ rails g model member name title:references surname othernames gender:references 
 # serialize :interest_area_ids, Array
 # serialize :spritual_gift_ids, Array
 # serialize :group_ids, Array
-rails g model group name total_member_acount:integer active_member_acount:integer parent_id:integer lft:integer rgt:integer depth:integer user_ids deleted_at:datetime # ['Choir']
+rails g model group name total_member_count:integer active_member_count:integer parent_id:integer lft:integer rgt:integer depth:integer user_ids deleted_at:datetime # ['Choir']
 # serialize :user_ids, Array
 rails g model group_position name # ['President', 'Vice President', 'Secretary', 'Treasurer', 'Organizer']
 rails g model group_leader name group:references member:references group_position:references deleted_at:datetime

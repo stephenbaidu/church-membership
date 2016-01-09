@@ -2,18 +2,18 @@
 #
 # Table name: groups
 #
-#  id                   :integer          not null, primary key
-#  name                 :string
-#  total_member_acount  :integer
-#  active_member_acount :integer
-#  parent_id            :integer
-#  lft                  :integer
-#  rgt                  :integer
-#  depth                :integer
-#  user_ids             :string           default([])
-#  deleted_at           :datetime
-#  created_at           :datetime         not null
-#  updated_at           :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :string
+#  total_member_count  :integer
+#  active_member_count :integer
+#  parent_id           :integer
+#  lft                 :integer
+#  rgt                 :integer
+#  depth               :integer
+#  user_ids            :string           default([])
+#  deleted_at          :datetime
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 
 class Group < ActiveRecord::Base
@@ -27,5 +27,5 @@ class Group < ActiveRecord::Base
   default_scope { where(deleted_at: nil) }
 
   validates_presence_of :name
-  validates_numericality_of :total_member_acount, :active_member_acount, greater_than_or_equal_to: 0
+  validates_numericality_of :total_member_count, :active_member_count, greater_than_or_equal_to: 0, :allow_blank => true
 end

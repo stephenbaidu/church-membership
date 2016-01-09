@@ -9,7 +9,6 @@
 #  event_type_id :integer
 #  start_date    :datetime
 #  end_date      :datetime
-#  all_day       :boolean
 #  group_ids     :string           default([])
 #  deleted_at    :datetime
 #  created_at    :datetime         not null

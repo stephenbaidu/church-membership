@@ -2,8 +2,8 @@ class CreateGroups < ActiveRecord::Migration
   def change
     create_table :groups do |t|
       t.string :name
-      t.integer :total_member_acount
-      t.integer :active_member_acount
+      t.integer :total_member_count
+      t.integer :active_member_count
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
