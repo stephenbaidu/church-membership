@@ -3,6 +3,7 @@ angular.module('angularApp')
     $urlRouterProvider.otherwise('/');
     $urlRouterProvider.when('/', '/main');
     $urlRouterProvider.when('/main', '/main/dashboard');
+    $urlRouterProvider.when('/sundayschool', '/sundayschool/dashboard');
     $urlRouterProvider.when('/admin', '/admin/dashboard');
     $urlRouterProvider.when('/reports', '/reports/dashboard');
     $stateProvider

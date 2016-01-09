@@ -107,16 +107,7 @@ angular.module('angularApp')
         {
           "fieldGroup": [
             {
-              "className": "col-xs-6",
-              "key": "all_day",
-              "type": "ex-checkbox",
-              "templateOptions": {
-                "required": false,
-                "label": "All Day"
-              }
-            },
-            {
-              "className": "col-xs-6",
+              "className": "col-xs-12",
               "key": "group_ids",
               "type": "ex-select-multiple",
               "templateOptions": {
@@ -193,12 +184,6 @@ angular.module('angularApp')
             "title": "End Date",
             "type": "datetime",
             "format": "date"
-          },
-          "all_day": {
-            "key": "all_day",
-            "title": "All Day",
-            "type": "boolean",
-            "format": "text"
           },
           "group_ids": {
             "key": "group_ids",

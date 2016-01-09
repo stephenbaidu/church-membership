@@ -42,11 +42,11 @@ angular.module('angularApp')
             },
             {
               "className": "col-xs-6",
-              "key": "total_member_acount",
+              "key": "total_member_count",
               "type": "ex-input",
               "templateOptions": {
-                "required": true,
-                "label": "Total Member Acount"
+                "required": false,
+                "label": "Total Member Count"
               }
             }
           ]
@@ -55,11 +55,11 @@ angular.module('angularApp')
           "fieldGroup": [
             {
               "className": "col-xs-6",
-              "key": "active_member_acount",
+              "key": "active_member_count",
               "type": "ex-input",
               "templateOptions": {
-                "required": true,
-                "label": "Active Member Acount"
+                "required": false,
+                "label": "Active Member Count"
               }
             },
             {
@@ -130,15 +130,15 @@ angular.module('angularApp')
             "type": "string",
             "format": "text"
           },
-          "total_member_acount": {
-            "key": "total_member_acount",
-            "title": "Total Member Acount",
+          "total_member_count": {
+            "key": "total_member_count",
+            "title": "Total Member Count",
             "type": "number",
             "format": "text"
           },
-          "active_member_acount": {
-            "key": "active_member_acount",
-            "title": "Active Member Acount",
+          "active_member_count": {
+            "key": "active_member_count",
+            "title": "Active Member Count",
             "type": "number",
             "format": "text"
           },

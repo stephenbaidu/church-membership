@@ -3,16 +3,16 @@ angular.module('angularApp')
   .run(function run(APP) {
     APP.setModule('main', {
       title: 'Membership',
-      icon: 'fa fa-minus-circle', 
+      icon: 'fa fa-users', 
       links: links(),
       hasAccess: hasAccess
     });
     
     function links () {
       return [
-        { text: 'Members', url: 'members', icon: 'fa fa-file-o color-deep-purple-a700' },
-        { text: 'Groups', url: 'groups', icon: 'fa fa-ioxhost color-blue-800' },
-        { text: 'Event Schedules', url: 'event-schedules', icon: 'fa fa-cogs color-purple-a400' }
+        { text: 'Members', url: 'members', icon: 'fa fa-user-plus color-cyan-500' },
+        { text: 'Groups', url: 'groups', icon: 'fa fa-sitemap color-blue-800' },
+        { text: 'Events', url: 'event-schedules', icon: 'fa fa-calendar color-teal-400' }
       ];
     }
 

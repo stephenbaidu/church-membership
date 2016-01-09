@@ -41,7 +41,29 @@ angular.module('angularApp')
               }
             },
             {
-              "className": "col-xs-6",
+              "className": "col-xs-2",
+              "key": "age",
+              "type": "ex-input",
+              "templateOptions": {
+                "required": false,
+                "label": "Age"
+              }
+            },
+            {
+              "className": "col-xs-4",
+              "key": "date_of_birth",
+              "type": "ex-datepicker",
+              "templateOptions": {
+                "required": false,
+                "label": "Date Of Birth"
+              }
+            }
+          ]
+        },
+        {
+          "fieldGroup": [
+            {
+              "className": "col-xs-2",
               "key": "gender_id",
               "type": "ex-select",
               "templateOptions": {
@@ -57,40 +79,14 @@ angular.module('angularApp')
                   $scope.to.options = lookupService.get($scope.to.lookup);
                 });
               }
-            }
-          ]
-        },
-        {
-          "fieldGroup": [
-            {
-              "className": "col-xs-6",
-              "key": "age",
-              "type": "ex-input",
-              "templateOptions": {
-                "required": true,
-                "label": "Age"
-              }
             },
             {
-              "className": "col-xs-6",
-              "key": "date_of_birth",
-              "type": "ex-datepicker",
-              "templateOptions": {
-                "required": false,
-                "label": "Date Of Birth"
-              }
-            }
-          ]
-        },
-        {
-          "fieldGroup": [
-            {
-              "className": "col-xs-6",
+              "className": "col-xs-4",
               "key": "pupil_group_id",
               "type": "ex-select",
               "templateOptions": {
                 "required": true,
-                "label": "Pupil Group",
+                "label": "Class",
                 "lookup": "pupil_group",
                 "valueProp": "value",
                 "labelProp": "name",
@@ -108,7 +104,7 @@ angular.module('angularApp')
               "type": "ex-select",
               "templateOptions": {
                 "required": true,
-                "label": "Pupil School",
+                "label": "School",
                 "lookup": "pupil_school",
                 "valueProp": "value",
                 "labelProp": "name",
@@ -126,20 +122,20 @@ angular.module('angularApp')
           "fieldGroup": [
             {
               "className": "col-xs-6",
-              "key": "school_details",
-              "type": "ex-input",
+              "key": "extra_details",
+              "type": "textarea",
               "templateOptions": {
                 "required": false,
-                "label": "School Details"
+                "label": "Extra Details"
               }
             },
             {
               "className": "col-xs-6",
-              "key": "extra_details",
-              "type": "ex-input",
+              "key": "school_details",
+              "type": "textarea",
               "templateOptions": {
                 "required": false,
-                "label": "Extra Details"
+                "label": "School Details"
               }
             }
           ]
@@ -156,12 +152,21 @@ angular.module('angularApp')
               }
             },
             {
-              "className": "col-xs-6",
+              "className": "col-xs-2",
               "key": "phone_no",
               "type": "ex-input",
               "templateOptions": {
                 "required": false,
                 "label": "Phone No"
+              }
+            },
+            {
+              "className": "col-xs-4",
+              "key": "email",
+              "type": "ex-input",
+              "templateOptions": {
+                "required": false,
+                "label": "Email"
               }
             }
           ]
@@ -169,22 +174,14 @@ angular.module('angularApp')
         {
           "fieldGroup": [
             {
-              "className": "col-xs-6",
-              "key": "email",
-              "type": "ex-input",
+              "className": "col-xs-8",
+              "key": "member_ids",
+              "type": "ex-select-multiple",
               "templateOptions": {
                 "required": false,
-                "label": "Email"
-              }
-            },
-            {
-              "className": "col-xs-6",
-              "key": "pupil_status_id",
-              "type": "ex-select",
-              "templateOptions": {
-                "required": true,
-                "label": "Pupil Status",
-                "lookup": "pupil_status",
+                "label": "Parents/Guardians",
+                "lookup": "member",
+                "placeholder": "Select parent or guardian names ...",
                 "valueProp": "value",
                 "labelProp": "name",
                 "options": []
@@ -194,20 +191,15 @@ angular.module('angularApp')
                   $scope.to.options = lookupService.get($scope.to.lookup);
                 });
               }
-            }
-          ]
-        },
-        {
-          "fieldGroup": [
+            },
             {
-              "className": "col-xs-6",
-              "key": "member_ids",
-              "type": "ex-select-multiple",
+              "className": "col-xs-4",
+              "key": "pupil_status_id",
+              "type": "ex-select",
               "templateOptions": {
-                "required": false,
-                "label": "Members",
-                "lookup": "member",
-                "placeholder": "Select members ...",
+                "required": true,
+                "label": "Pupil Status",
+                "lookup": "pupil_status",
                 "valueProp": "value",
                 "labelProp": "name",
                 "options": []

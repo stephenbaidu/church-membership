@@ -3,11 +3,12 @@
   <div ng-include="partials.searchForm"></div>
   <div class="row model-container">
     <div ng-init="vm.config({openable: true, popable: true})"></div>
+    <div ng-init="vm.classes('event_type_id', {1: 'success', 2: 'info', 3: 'warning'})"></div>
     <div ng-init="vm.column('name', 'Name')"></div>
-		<div ng-init="vm.column('description', 'Description')"></div>
-		<div ng-init="vm.column('special_event', 'Special Event')"></div>
 		<div ng-init="vm.column('event_type_name', 'Event Type')"></div>
-		<div ng-init="vm.column('start_date', 'Start Date', 'date', 'yyyy-MM-dd HH:mm:ss')"></div>
+    <div ng-init="vm.column('start_date', 'Day', 'date', 'EEE, MMM d, yyyy')"></div>
+    <div ng-init="vm.column('start_date', 'Start Time', 'date', 'HH:mm a')"></div>
+		<div ng-init="vm.column('end_date', 'Stop Time', 'date', 'HH:mm a')"></div>
     <div ng-show="state.showGrid" ng-class="{'col-md-12': !state.collapsedGridMode, 'col-md-4': state.collapsedGridMode}">
       <div ng-include="partials.indexGrid"></div>
       <div ng-include="partials.loadMoreButton"></div>
