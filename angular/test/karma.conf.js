@@ -73,6 +73,7 @@ module.exports = function(config) {
       'bower_components/angular-file-upload/dist/angular-file-upload.min.js',
       'bower_components/jszip/dist/jszip.js',
       'bower_components/js-xlsx/dist/xlsx.js',
+      'bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "src/scripts/**/*.js",
