@@ -1,16 +1,21 @@
-# eXRails
+# Church Membership
 
-An application template based on the popular Ruby on Rails and AngularJS frameworks. [Devise](https://github.com/plataformatec/devise) and [Pundit](https://github.com/elabs/pundit) are used for authentication and authorization respectively. With Rails for the RESTful API, [Resourcify](https://github.com/stephenbaidu/resourcify) was used as a complementary gem to reduce code written in controllers.
+Rails & AngularJs based Church Management System, with a special module for the Children's Sunday School.
+
+## Features
+  - Member records
+  - Events
+  - Birthdays
+  - Children's Sunday School
+  - More features coming
 
 ## Installation
 
 ```
-git clone https://github.com/stephenbaidu/exrails exrailsapp
-cd exrailsapp
+git clone git@github.com:stephenbaidu/church-membership.git churchapp
+cd churchapp
 rake db:create db:migrate app:setup
 ```
-Note that two models (Sample & SampleStatus) have been added for testing. Feel free to remove them after you are conversant with how they were used.
-
 ## Starting the rails api
 
 You can now go ahead and run your rails server.
@@ -26,9 +31,7 @@ sudo npm install && bower install
 grunt serve
 ```
 
-Because a defualt user was created from the `rake app:setup` task, login with `admin@exrails.com` and `admin123` as username and password respectively
-
-### This is still work in progress, but production ready.
+Because a defualt user was created from the `rake app:setup` task, login with `admin@exrails.com` and `adminadmin` as username and password respectively
 
 # License
 
