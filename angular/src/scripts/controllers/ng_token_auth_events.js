@@ -15,7 +15,7 @@ angular.module('angularApp')
 
     vm.$on('auth:login-success', function(ev, user) {
       console.log('auth:login-success');
-      exMsg.info('Welcome, ' + user.name);
+      // exMsg.info('Welcome, ' + user.name);
       $state.go('app');
     });
 
@@ -43,7 +43,7 @@ angular.module('angularApp')
 
     vm.$on('auth:logout-success', function(ev) {
       console.log('auth:logout-success');
-      exMsg.info('Goodbye');
+      // exMsg.info('Goodbye');
       if ($state.$current.name !== 'auth.signin') {
         $state.go('auth.signin');
       }
