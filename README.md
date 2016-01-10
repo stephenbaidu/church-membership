@@ -9,6 +9,19 @@ Rails & AngularJs based Church Management System, with a special module for the 
   - Children's Sunday School
   - More features coming
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/stephenbaidu/church-membership/master/screenshots/login.png"></td>
+    <td><img src="https://raw.githubusercontent.com/stephenbaidu/church-membership/master/screenshots/membership.png"></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/stephenbaidu/church-membership/master/screenshots/sunday-school.png"></td>
+    <td><img src="https://raw.githubusercontent.com/stephenbaidu/church-membership/master/screenshots/admin-panel.png"></td>
+  </tr>
+</table>
+
 ## Installation
 
 ```
