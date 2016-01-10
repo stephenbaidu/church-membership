@@ -26,13 +26,12 @@ angular.module('angularApp')
     });
 
     vm.$on('auth:invalid', function (ev) {
-      console.log('auth:invalid');
-      // exMsg.error('auth:invalid');
+      // console.log('auth:invalid');
     });
 
     vm.$on('auth:validation-success', function (ev) {
       console.log('auth:validation-success');
-      if ($state.$current.name === 'login') {
+      if ($state.$current.name === 'auth.signin') {
         $state.go('app');
       }
     });
@@ -45,8 +44,8 @@ angular.module('angularApp')
     vm.$on('auth:logout-success', function(ev) {
       console.log('auth:logout-success');
       exMsg.info('Goodbye');
-      if ($state.$current.name !== 'login') {
-        $state.go('login');
+      if ($state.$current.name !== 'auth.signin') {
+        $state.go('auth.signin');
       }
     });
 
@@ -181,8 +180,8 @@ angular.module('angularApp')
     vm.$on('auth:session-expired', function(ev) {
       console.log('auth:session-expired');
       // exMsg.info('Session has expired');
-      if ($state.$current.name !== 'login') {
-        $state.go('login');
+      if ($state.$current.name !== 'auth.signin') {
+        $state.go('auth.signin');
       }
     });
   });

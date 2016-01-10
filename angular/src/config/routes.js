@@ -12,15 +12,48 @@ angular.module('angularApp')
         templateUrl: 'app/layouts/app.html',
         controller: 'AppCtrl',
         resolve: {
-          auth: function($auth, $state, $rootScope) {
-            return $auth.validateUser().catch(function() { $state.go('login'); });
+          auth: function($auth, $state) {
+            return $auth.validateUser().catch(function() { $state.go('auth.signin'); });
           }
         }
       })
-      .state('login', {
-        url: '/login',
-        templateUrl: 'app/layouts/login.html',
-        controller: 'LoginCtrl'
+      .state('auth', {
+        url: '/auth',
+        templateUrl: 'app/layouts/home.html'
+      })
+      .state('auth.signin', {
+        url: '/signin',
+        onEnter: function ($stateParams, $state, $uibModal, $auth, $uibModalStack) {
+          $uibModal.open({
+            templateUrl: 'app/layouts/signin.html',
+            size: 'sm'
+          }).result.finally(function() {
+            $auth.validateUser().then(function() {
+              $state.go('app');
+            }).catch(function() {
+              console.log($state.current.name)
+              $state.go($state.current, {}, {reload: true});
+            });
+          });
+        },
+        onExit: function ($uibModalStack) {
+          $uibModalStack.dismissAll();
+        }
+      })
+      .state('newUser', {
+        url: '/new-user',
+        templateUrl: 'app/layouts/home.html'
+      })
+      .state('newUser.signup', {
+        url: '/signup',
+        onEnter: function ($stateParams, $state, $uibModal, $auth) {
+          $uibModal.open({
+            templateUrl: 'app/layouts/signup.html',
+            size: 'sm'
+          }).result.finally(function() {
+            $state.go('^');
+          });
+        }
       })
       .state('maintenance', {
         url: '/maintenance',
