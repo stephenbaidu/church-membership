@@ -26,12 +26,13 @@ angular.module('angularApp')
         onEnter: function ($stateParams, $state, $uibModal, $auth, $uibModalStack) {
           $uibModal.open({
             templateUrl: 'app/layouts/signin.html',
-            size: 'sm'
+            size: 'sm',
+            backdrop: 'static',
+            keyboard: false
           }).result.finally(function() {
             $auth.validateUser().then(function() {
               $state.go('app');
             }).catch(function() {
-              console.log($state.current.name)
               $state.go($state.current, {}, {reload: true});
             });
           });
@@ -40,18 +41,14 @@ angular.module('angularApp')
           $uibModalStack.dismissAll();
         }
       })
-      .state('newUser', {
-        url: '/new-user',
-        templateUrl: 'app/layouts/home.html'
-      })
-      .state('newUser.signup', {
+      .state('auth.signup', {
         url: '/signup',
         onEnter: function ($stateParams, $state, $uibModal, $auth) {
           $uibModal.open({
             templateUrl: 'app/layouts/signup.html',
-            size: 'sm'
-          }).result.finally(function() {
-            $state.go('^');
+            size: 'sm',
+            backdrop: 'static',
+            keyboard: false
           });
         }
       })
@@ -64,9 +61,9 @@ angular.module('angularApp')
         onEnter: function ($stateParams, $state, $uibModal) {
           $uibModal.open({
             templateUrl: 'app/layouts/account.html',
-            size: 'lg'
-          }).result.finally(function() {
-            $state.go('^');
+            size: 'lg',
+            backdrop: 'static',
+            keyboard: false
           });
         }
       })
@@ -118,9 +115,9 @@ angular.module('angularApp')
         onEnter: function ($stateParams, $state, $uibModal) {
           $uibModal.open({
             templateUrl: 'app/components/' + $stateParams.model + '/new.html',
-            size: 'lg'
-          }).result.finally(function() {
-            $state.go('^');
+            size: 'lg',
+            backdrop: 'static',
+            keyboard: false
           });
         }
       })
@@ -147,9 +144,9 @@ angular.module('angularApp')
         onEnter: function ($stateParams, $state, $uibModal) {
           $uibModal.open({
             templateUrl: 'app/components/' + $stateParams.model + '/new.html',
-            size: 'lg'
-          }).result.finally(function() {
-            $state.go('^');
+            size: 'lg',
+            backdrop: 'static',
+            keyboard: false
           });
         }
       })
@@ -164,9 +161,9 @@ angular.module('angularApp')
         onEnter: function ($stateParams, $state, $uibModal) {
           $uibModal.open({
             templateUrl: 'app/components/' + $stateParams.model + '/show.html',
-            size: 'lg'
-          }).result.finally(function() {
-            $state.go('^');
+            size: 'lg',
+            backdrop: 'static',
+            keyboard: false
           });
         }
       })
