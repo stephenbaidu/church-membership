@@ -13,7 +13,9 @@ angular.module('angularApp')
         controller: 'AppCtrl',
         resolve: {
           auth: function($auth, $state) {
-            return $auth.validateUser().catch(function() { $state.go('auth.signin'); });
+            return $auth.validateUser().catch(function() {
+              $state.go('auth.signin');
+            });
           }
         }
       })
@@ -23,27 +25,22 @@ angular.module('angularApp')
       })
       .state('auth.signin', {
         url: '/signin',
-        onEnter: function ($stateParams, $state, $uibModal, $auth, $uibModalStack) {
-          $uibModal.open({
-            templateUrl: 'app/layouts/signin.html',
-            size: 'sm',
-            backdrop: 'static',
-            keyboard: false
-          }).result.finally(function() {
-            $auth.validateUser().then(function() {
-              $state.go('app');
-            }).catch(function() {
-              $state.go($state.current, {}, {reload: true});
-            });
+        onEnter: function ($state, $uibModal, $auth) {
+          $auth.validateUser().then(function() {
+            $state.go('app');
+          }).catch(function() {
+            $uibModal.open({
+              templateUrl: 'app/layouts/signin.html',
+              size: 'sm',
+              backdrop: 'static',
+              keyboard: false
+            })
           });
-        },
-        onExit: function ($uibModalStack) {
-          $uibModalStack.dismissAll();
         }
       })
       .state('auth.signup', {
         url: '/signup',
-        onEnter: function ($stateParams, $state, $uibModal, $auth) {
+        onEnter: function ($uibModal) {
           $uibModal.open({
             templateUrl: 'app/layouts/signup.html',
             size: 'sm',
@@ -58,7 +55,7 @@ angular.module('angularApp')
       })
       .state('app.account', {
         url: 'account',
-        onEnter: function ($stateParams, $state, $uibModal) {
+        onEnter: function ($uibModal) {
           $uibModal.open({
             templateUrl: 'app/layouts/account.html',
             size: 'lg',
@@ -69,7 +66,7 @@ angular.module('angularApp')
       })
       .state('app.dashboard', {
         url: 'dashboard',
-        templateUrl: function ($stateParams) {
+        templateUrl: function () {
           return 'app/layouts/dashboard.html';
         },
         controller: 'ModuleCtrl'
@@ -112,7 +109,7 @@ angular.module('angularApp')
       })
       .state('app.module.form', {
         url: '/form/:model',
-        onEnter: function ($stateParams, $state, $uibModal) {
+        onEnter: function ($stateParams, $uibModal) {
           $uibModal.open({
             templateUrl: 'app/components/' + $stateParams.model + '/new.html',
             size: 'lg',
@@ -141,7 +138,7 @@ angular.module('angularApp')
       })
       .state('app.module.model.newPop', {
         url: '/new/pop',
-        onEnter: function ($stateParams, $state, $uibModal) {
+        onEnter: function ($stateParams, $uibModal) {
           $uibModal.open({
             templateUrl: 'app/components/' + $stateParams.model + '/new.html',
             size: 'lg',
@@ -158,7 +155,7 @@ angular.module('angularApp')
       })
       .state('app.module.model.showPop', {
         url: '/:id/pop',
-        onEnter: function ($stateParams, $state, $uibModal) {
+        onEnter: function ($stateParams, $uibModal) {
           $uibModal.open({
             templateUrl: 'app/components/' + $stateParams.model + '/show.html',
             size: 'lg',

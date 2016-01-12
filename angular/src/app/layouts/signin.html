@@ -10,11 +10,14 @@
   <div class="modal-body">
     <div class="row">
       <div class="col-md-12">
+        <div ng-if="vm.showLoginError" class="alert alert-danger">
+          Invalid credentials. Please try again.
+        </div>
         <h4>
           Sign in
-          <!-- <span style="font-size: 12px; margin-top: -5px;" class="pull-right">
-            New user?<a ng-click="vm.goToSignUpPage()" -ui-sref="^.signup" class="btn btn-default- btn-xs">Sign up</a>
-          </span> -->
+          <span style="font-size: 12px; margin-top: -5px;" class="pull-right">
+            New user?<a ui-sref="^.signup" class="btn btn-default- btn-xs">Sign up</a>
+          </span>
         </h4>
         <form method="post" name="loginForm" class="formly-form login-form">
           <div class="form-group has-feedback formly-field-ex-input">

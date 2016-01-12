@@ -16,13 +16,13 @@ angular.module('angularApp')
     vm.$on('auth:login-success', function(ev, user) {
       console.log('auth:login-success');
       // exMsg.info('Welcome, ' + user.name);
-      $state.go('app');
+      // $state.go('app');
     });
 
     vm.$on('auth:login-error', function(ev, resp) {
       console.log('auth:login-error');
-      var text = resp.errors[0];
-      exMsg.sweetAlert({title: 'Login Failed', text: text, type: 'error', animation: 'slide-from-top'});
+      // var text = resp.errors[0];
+      // exMsg.sweetAlert({title: 'Login Failed', text: text, type: 'error', animation: 'slide-from-top'});
     });
 
     vm.$on('auth:invalid', function (ev) {

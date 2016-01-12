@@ -12,40 +12,28 @@ angular.module('angularApp')
     var vm = this;
 
     vm.user = {};
+    vm.showLoginError = false;
 
     vm.submitLogin = function (user) {
       $auth.submitLogin(vm.user);
     }
 
+    $rootScope.$on('auth:login-success', function(ev, resp) {
+      $uibModalStack.dismissAll();
+      $state.go('app');
+    });
+
+    $rootScope.$on('auth:login-error', function(ev, resp) {
+      vm.showLoginError = true;
+    });
+
     vm.submitRegistration = function (user) {
       $auth.submitRegistration(vm.user);
     }
 
-    vm.goToSignUpPage = function () {
-      $scope.$dismiss();
-      // $state.go('newUser.signup');
-      console.log('still still valid')
-      // $uibModalStack.dismissAll();
-      // $state.go($state.current, {}, {reload: true});
-      // console.log('still still valid')
-        // $scope.$dismiss();
-        // $state.go('auth.signup')
-      // if ($uibModalStack.getTop()) {
-      // }
-    }
-
-    vm.goToSignInPage = function () {
+    vm.backToSignIn = function () {
       $uibModalStack.dismissAll();
       $state.go('auth.signin');
-    }
-
-    vm.closeSignUpPage = function () {
-      $uibModalStack.dismissAll();
-      console.log('still valid')
-      // if ($uibModalStack.getTop()) {
-      //   $scope.$dismiss();
-      // }
-      // $state.go('^');
     }
 
     vm.sendPasswordResetEmail = function () {
