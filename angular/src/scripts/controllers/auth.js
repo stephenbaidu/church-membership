@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name angularApp.controller:MainCtrl
+ * @name angularApp.controller:AuthCtrl
  * @description
- * # MainCtrl
+ * # AuthCtrl
  * Controller of the angularApp
  */
 angular.module('angularApp')
