@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107210649) do
+ActiveRecord::Schema.define(version: 20160117164638) do
 
   create_table "blood_groups", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,25 @@ ActiveRecord::Schema.define(version: 20160107210649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "committee_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "committees", force: :cascade do |t|
+    t.string   "name"
+    t.text     "purpose"
+    t.date     "commencement_date"
+    t.date     "conclusion_date"
+    t.text     "member_ids",          default: "--- []\n"
+    t.integer  "committee_status_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "committees", ["committee_status_id"], name: "index_committees_on_committee_status_id"
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false

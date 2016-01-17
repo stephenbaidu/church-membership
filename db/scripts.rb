@@ -31,6 +31,8 @@ rails g model pupil name gender:references age:integer date_of_birth:date pupil_
 # serialize :member_ids, Array
 rails g model pupil_attendance event_schedule:references pupil_group:references count:integer
 rails g model pupil_register pupil_attendance:references pupil:references
+rails g model committee_status name # ['Active', 'Closed']
+rails g model committee name purpose:text commencement_date:date conclusion_date:date member_ids:text committee_status:references
 
 
 rake uix:g c spoken_language church_office interest_area spiritual_gift

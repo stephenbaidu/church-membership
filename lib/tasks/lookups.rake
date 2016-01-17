@@ -23,7 +23,8 @@ namespace :app do
       'EventType' => ['Sunday Service', 'Evening Service', 'All-Night Service'],
       'PupilGroup' => ['Teens', 'Class 2', 'Class 1'],
       'PupilSchool' => ['N/A'],
-      'PupilStatus' => ['Active', 'Travelled', 'Inactive']
+      'PupilStatus' => ['Active', 'Travelled', 'Inactive'],
+      'CommitteeStatus' => ['Active', 'Closed']
     }.each do |k, v|
       begin
         klass = k.to_s.constantize

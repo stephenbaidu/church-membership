@@ -1,0 +1,49 @@
+.login {
+  .modal-header {
+    padding-bottom: 0px !important;
+
+    .login-app-title {
+      font-size: 24px;
+      font-weight: 300;
+    }
+  }
+  .modal-footer {
+    padding: 10px 15px !important;
+  }
+  .has-feedback .form-control-feedback {
+    top: -2px !important;
+    left: 0;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    color: #555;
+  }
+  .has-feedback .form-control {
+    padding-left: 42.5px;
+  }
+  input {
+    height: 43px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.home {
+  .site-footer {
+    text-align: center;
+    background: #4b494f;
+    color: #999;
+    padding: 50px 0 0;
+  }
+  @media (max-width: 991px) {
+    .site-footer {
+      padding: 30px 0 0;
+    }
+  }
+  .site-footer .copyright {
+    border-top: 5px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    padding: 20px 0 10px;
+  }
+}

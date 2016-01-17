@@ -1,0 +1,19 @@
+<div ng-controller="IndexCtrl as vm" ng-init="vm.initRoute('roles', {lookups: 'permission'})">
+  <div ng-include="partials.header"></div>
+  <div ng-include="partials.searchForm"></div>
+  <div class="row model-container">
+    <div ng-init="vm.configure({openable: true, popable: true})"></div>
+    <div ng-init="vm.column('name', 'Name')"></div>
+    <div ng-init="vm.column('description', 'Description')"></div>
+    <div ng-init="vm.column('permissions', 'Permissions', 'size')"></div>
+    <div ng-init="vm.column('users')"></div>
+    <div ng-show="state.showGrid" ng-class="{'col-md-12': !state.collapsedGridMode, 'col-md-4': state.collapsedGridMode}">
+      <div ng-include="partials.indexGrid"></div>
+      <div ng-include="partials.loadMoreButton"></div>
+    </div>
+    <div ng-hide="state.isIndex" ng-class="{'col-md-8': state.collapsedGridMode, 'col-md-12': !state.collapsedGridMode}">
+      <div ui-view></div>
+    </div>
+  </div>
+</div>
+<div ng-controller="RoleIndexCtrl"></div>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       end
     end
     resources :roles
+    resources :committees
     resources :pupil_registers
     resources :pupil_schools
     resources :pupil_attendances

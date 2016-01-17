@@ -8,6 +8,11 @@ namespace :uix do
   end
   task :c => :create # alias
 
+  desc 'Publishes the angular app in public directory'
+  task :publish => :environment do |t, args|
+    uix_publish
+  end
+
   desc 'Generates module/component files in the angular app'
   task :generate => :environment do |t, args|
     uix_generate
@@ -22,6 +27,18 @@ namespace :uix do
 
   def uix_create
     puts "Not yet implemented"
+  end
+
+  def uix_publish
+    FileUtils.rm_rf(Dir.glob(Rails.root.join('public', '*')))
+    FileUtils.cp_r(Rails.root.join('_uix', 'dist/.'), Rails.root.join('public'))
+
+    FileUtils.cd(Rails.root) {
+      command = 'rake assets:precompile RAILS_ENV=production'
+      command += " && git add #{Rails.root.join('public')}"
+      command += ' && git commit -m "Published updated uix angular app"'
+      system(command)
+    }
   end
 
   def uix_generate
@@ -147,15 +164,15 @@ namespace :uix do
   end
 
   def uix_components_directory
-    Rails.root.join('angular', 'src', 'app', 'components').to_s
+    Rails.root.join('_uix', 'src', 'app', 'components').to_s
   end
 
   def uix_modules_directory
-    Rails.root.join('angular', 'src', 'app', 'modules').to_s
+    Rails.root.join('_uix', 'src', 'app', 'modules').to_s
   end
 
   def uix_index_file
-    Rails.root.join('angular', 'src', 'index.html').to_s
+    Rails.root.join('_uix', 'src', 'index.html').to_s
   end
 
   def uix_routes_file
@@ -297,7 +314,7 @@ namespace :uix do
   end
 
   def uix_fa_icon
-    file = Rails.root.join('angular', 'bower_components', 'font-awesome', 'scss', '_icons.scss')
+    file = Rails.root.join('_uix', 'bower_components', 'font-awesome', 'scss', '_icons.scss')
     lines = File.readlines(file)
     blacklist1 = [
       'twitter', 'facebook', 'github', 'linkedin', 'pinterest', 'google', 'skype',
@@ -312,7 +329,7 @@ namespace :uix do
   end
 
   def uix_material_color
-    file = Rails.root.join('angular', 'src', 'styles', 'material-colors.scss')
+    file = Rails.root.join('_uix', 'src', 'styles', 'material-colors.scss')
     lines = File.readlines(file)
     blacklist1 = ['50', '100', 'a100', '200', 'a200']
     blacklist2 = ['amber', 'yellow']
@@ -695,7 +712,7 @@ angular.module('angularApp')
 
     data[:config] = <<-eos
 
-angular.module('angularApp')
+angular.module('uixApp')
   .controller('#{uix_model_name(klass)}IndexCtrl', function ($scope, $rootScope, APP, $http, exMsg) {
     
     $scope.$on('uix:index-ready', function (evt, modelName, config, scope) {
@@ -704,7 +721,7 @@ angular.module('angularApp')
     });
   });
 
-angular.module('angularApp')
+angular.module('uixApp')
   .controller('#{uix_model_name(klass)}FormCtrl', function ($scope, $rootScope, APP, $http, exMsg) {
     
     $scope.$on('uix:form-ready', function (evt, modelName, config, scope) {
@@ -718,7 +735,7 @@ angular.module('angularApp')
     });
   });
 
-angular.module('angularApp')
+angular.module('uixApp')
   .run(function (fieldService) {
     // Set config for angular-formly
     fieldService.set('#{uix_model_key(klass)}', fieldConfig());
@@ -728,7 +745,7 @@ angular.module('angularApp')
     }
   });
 
-angular.module('angularApp')
+angular.module('uixApp')
   .run(function (schemaService) {
     // Set config for json-schema
     schemaService.set('#{uix_model_key(klass)}', schemaConfig());
